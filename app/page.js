@@ -1,6 +1,8 @@
 "use client";
 
 import CurrentWeather from "@/components/CurrentWeather";
+import HourlyWeather from "@/components/HourlyWeather";
+import SevenDayWeather from "@/components/SevenDayWeather";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -62,6 +64,8 @@ export default function Home() {
         </div>
       </div>
       <CurrentWeather weather={weather} />
+      <HourlyWeather />
+      <SevenDayWeather />
     </main>
   );
 }

@@ -3,7 +3,7 @@ import React from 'react'
 const HourlyWeather = () => {
 
   return (
-    <div id='container' className='absolute bottom-2 w-screen h-1/2 p-4'>
+    <div id='container' className=' bottom-2 w-screen h-1/2 p-4'>
         <div id='weather-container' className='w-full h-full p-3 pt-4 pl-8 overflow-x-scroll bg-purple-400 rounded-lg'>
             <div className='flex justify-between'>
               <p className='text-xl font-bold text-yellow-400'>Today</p>

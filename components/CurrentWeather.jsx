@@ -21,7 +21,7 @@ const CurrentWeather = ({weather}) => {
       animationData={weatherAnimation}
       style={style}
     />
-        <p className="text-5xl font-bold">{weather?.current?.temp}</p>
+        <p className="text-5xl font-bold">{Math.round(weather?.current?.temp)}</p>
         <p>Mostly Cloudy</p>
         <p>H: <span>6</span> L: <span>-1</span></p>
         <article className="rounded-lg border border-gray-200 bg-white shadow-md mx-auto md:w-3/2 lg:w-4/5 xl:w-5/4 flex gap-10 text-center w-full mt-5 py-3  justify-evenly">
