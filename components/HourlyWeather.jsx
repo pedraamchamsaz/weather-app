@@ -1,13 +1,9 @@
 import React from "react";
 
-const HourlyWeather = ({ weather, unit }) => {
+const HourlyWeather = ({ weather, unit, changeToFahrenheit }) => {
   const hourlyData = weather?.hourly || [];
   const time = weather?.timezone
   const today = new Date(new Date().toLocaleString("en-US", {timeZone: time}));
-
-  const changeToFahrenheit = (celsiusTemp) => {
-    return (celsiusTemp * 9 / 5) + 32;
-  }
 
   return (
     <div id="container" className="bottom-2 w-screen h-1/2 py-4">

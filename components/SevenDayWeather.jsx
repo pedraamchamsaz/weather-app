@@ -8,6 +8,7 @@ const SevenDayWeather = ({weather}) => {
     const [minTemp, setMinTemp] = useState([]); 
     const [maxTemp, setMaxTemp] = useState([]);
     
+    console.log(weather)
 
     useEffect(() => {
         if (weather && weather.daily) {
@@ -72,7 +73,7 @@ const SevenDayWeather = ({weather}) => {
                     </g>
                 </svg>
             </div>
-            <img src={`https://openweathermap.org/img/wn/${weather.daily[6].weather[0].icon}@2x.png`} alt="" />
+            {/* <img src={`https://openweathermap.org/img/wn/${weather.daily[6].weather[0].icon}@2x.png`} alt="" /> */}
             <span class="font-semibold text-lg w-1/4 text-right">{minTemp[6]}° / {maxTemp[6]}°</span>
         </div>
         
@@ -86,7 +87,7 @@ const SevenDayWeather = ({weather}) => {
                     </g>
                 </svg>
             </div>
-            <img src={`https://openweathermap.org/img/wn/${weather.daily[5].weather[0].icon}@2x.png`} alt="" />
+            {/* <img src={`https://openweathermap.org/img/wn/${weather.daily[5].weather[0].icon}@2x.png`} alt="" /> */}
             <span class="font-semibold text-lg w-1/4 text-right">{minTemp[5]}° / {maxTemp[5]}°</span>
         </div>
         
@@ -100,7 +101,7 @@ const SevenDayWeather = ({weather}) => {
                     </g>
                 </svg>
             </div>
-            <img src={`https://openweathermap.org/img/wn/${weather.daily[4].weather[0].icon}@2x.png`} alt="" />
+            {/* <img src={`https://openweathermap.org/img/wn/${weather.daily[4].weather[0].icon}@2x.png`} alt="" /> */}
             <span class="font-semibold text-lg w-1/4 text-right">{minTemp[4]}° / {maxTemp[4]}°</span>
         </div>
         
@@ -114,7 +115,7 @@ const SevenDayWeather = ({weather}) => {
                     </g>
                 </svg>
             </div>
-            <img src={`https://openweathermap.org/img/wn/${weather.daily[3].weather[0].icon}@2x.png`} alt="" />
+            {/* <img src={`https://openweathermap.org/img/wn/${weather.daily[3].weather[0].icon}@2x.png`} alt="" /> */}
             <span class="font-semibold text-lg w-1/4 text-right">{minTemp[3]}° / {maxTemp[3]}°</span>
         </div>
         
@@ -128,7 +129,7 @@ const SevenDayWeather = ({weather}) => {
                     </g>
                 </svg>
             </div>
-            <img src={`https://openweathermap.org/img/wn/${weather.daily[2].weather[0].icon}@2x.png`} alt="" />
+            {/* <img src={`https://openweathermap.org/img/wn/${weather.daily[2].weather[0].icon}@2x.png`} alt="" /> */}
             <span class="font-semibold text-lg w-1/4 text-right">{minTemp[2]}° / {maxTemp[2]}°</span>
         </div>
         
@@ -142,7 +143,7 @@ const SevenDayWeather = ({weather}) => {
                     </g>
                 </svg>
             </div>
-            <img src={`https://openweathermap.org/img/wn/${weather.daily[1].weather[0].icon}@2x.png`} alt="" />
+            {/* <img src={`https://openweathermap.org/img/wn/${weather.daily[1].weather[0].icon}@2x.png`} alt="" /> */}
             <span class="font-semibold text-lg w-1/4 text-right">{minTemp[1]}° / {maxTemp[1]}°</span>
         </div>
         
@@ -156,7 +157,7 @@ const SevenDayWeather = ({weather}) => {
                     </g>
                 </svg>
             </div>
-            <img src={`https://openweathermap.org/img/wn/${weather.daily[0].weather[0].icon}@2x.png`} alt="" />
+            {/* <img src={`https://openweathermap.org/img/wn/${weather.daily[0].weather[0].icon}@2x.png`} alt="" /> */}
             <span class="font-semibold text-lg w-1/4 text-right">{minTemp[0]}° / {maxTemp[0]}°</span>
         </div>
         

@@ -9,7 +9,11 @@ import axios from "axios";
 export default function Home() {
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState("London");
-  const [unit, setUnit] = useState(true)
+  const [unit, setUnit] = useState(true);
+
+  const changeToFahrenheit = (celsiusTemp) => {
+    return (celsiusTemp * 9) / 5 + 32;
+  };
 
   const onChangeCity = (e) => {
     setCity(e.target.value);
@@ -30,8 +34,8 @@ export default function Home() {
   }, []);
 
   const toggleUnit = () => {
-    setUnit((prevUnit) => !prevUnit)
-  }
+    setUnit((prevUnit) => !prevUnit);
+  };
 
   return (
     <main className="py-10 px-20">
@@ -61,9 +65,17 @@ export default function Home() {
           <p>F</p>
         </button>
       </div>
-      <CurrentWeather weather={weather} />
-      <HourlyWeather weather={weather} unit={unit}/>
-      <SevenDayWeather />
+      <CurrentWeather
+        weather={weather}
+        changeToFahrenheit={changeToFahrenheit}
+        unit={unit}
+      />
+      <HourlyWeather
+        weather={weather}
+        unit={unit}
+        changeToFahrenheit={changeToFahrenheit}
+      />
+      <SevenDayWeather weather={weather} />
     </main>
   );
 }

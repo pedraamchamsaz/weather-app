@@ -12,7 +12,7 @@ const style = {
   height: 200,
 };
 
-const CurrentWeather = ({weather}) => {
+const CurrentWeather = ({weather, changeToFahrenheit, unit}) => {
 
   const generateAnimation = () => {
     if(weather?.current?.weather[0].main === "Snow") {
@@ -53,7 +53,7 @@ const CurrentWeather = ({weather}) => {
         animationData={generateAnimation()}
         style={style}
       />
-          <p className="text-5xl font-bold">{Math.round(weather?.current?.temp)}<span>&deg;</span></p>
+          <p className="text-5xl font-bold">{unit ? Math.round(weather?.current?.temp) : Math.round(changeToFahrenheit(weather?.current?.temp))}<span>&deg;</span></p>
           <p>{weather?.current?.weather[0].main}</p>
           <p>H: <span>{Math.floor(weather?.daily?.[0].temp.max)}</span> L: <span>{Math.floor(weather?.daily?.[0].temp.min)}</span></p>
         {/* </div> */}
