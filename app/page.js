@@ -65,7 +65,7 @@ export default function Home() {
       </div>
       <CurrentWeather weather={weather} />
       <HourlyWeather />
-      <SevenDayWeather />
+      <SevenDayWeather weather={weather}/>
     </main>
   );
 }
