@@ -9,6 +9,7 @@ import axios from "axios";
 export default function Home() {
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState("London");
+  const [unit, setUnit] = useState(true)
 
   const onChangeCity = (e) => {
     setCity(e.target.value);
@@ -29,6 +30,10 @@ export default function Home() {
     //GET();
     handleSearch();
   }, []);
+
+  const toggleUnit = () => {
+    setUnit((prevUnit) => !prevUnit)
+  }
 
   return (
     <main className="py-10 px-20">
@@ -57,14 +62,14 @@ export default function Home() {
             Search
           </button>
         </div>
-        <div className="flex w-full justify-center">
+        <button className="flex w-full justify-center" onClick={toggleUnit}>
           <p>C</p>
           <span>|</span>
           <p>F</p>
-        </div>
+        </button>
       </div>
       <CurrentWeather weather={weather} />
-      <HourlyWeather />
+      <HourlyWeather weather={weather} unit={unit}/>
       <SevenDayWeather />
     </main>
   );

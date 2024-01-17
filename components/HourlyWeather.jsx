@@ -1,24 +1,35 @@
-import React from 'react'
+import React from "react";
 
-const HourlyWeather = () => {
+const HourlyWeather = ({ weather, unit }) => {
+  const hourlyData = weather?.hourly || [];
+  const time = weather?.timezone
+  const today = new Date(new Date().toLocaleString("en-US", {timeZone: time}));
+
+  const changeToFahrenheit = (celsiusTemp) => {
+    return (celsiusTemp * 9 / 5) + 32;
+  }
 
   return (
-    <div id='container' className=' bottom-2 w-screen h-1/2 p-4'>
-        <div id='weather-container' className='w-full h-full p-3 pt-4 pl-8 overflow-x-scroll bg-purple-400 rounded-lg'>
-            <div className='flex justify-between'>
-              <p className='text-xl font-bold text-yellow-400'>Today</p>
-              <button className='font-bold mr-4 text-white'>Next 7 Days &gt;&gt;</button>
-            </div>
-            <div className='flex justify-start gap-2 pt-3'>
-              <div className='weather-card h-full min-w-32 w-32 bg-purple-600 flex flex-col items-center justify-evenly p-2 rounded-lg text-white'> {/* loop? */}
-                <p className='text-sm font-semibold'>7am</p>
-                <img src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png" alt="" />
-                <p className='text-md font-semibold'>25°</p>
-              </div>
-            </div>
-        </div>
-    </div>
-  )
-}
+    <div id="container" className="bottom-2 w-screen h-1/2 py-4">
+      <div className="flex justify-start overflow-x-scroll gap-2 pt-3">
+        {hourlyData.slice(0, 24).map((hourly, index) => {
+          const nextHour = (today.getHours() + index) % 24;
+          const amPm = nextHour < 12 ? "am" : "pm";
+          const displayHour = nextHour % 12 || 12;
 
-export default HourlyWeather
+          return (
+            <div key={index} className="weather-card h-full min-w-32 w-32 bg-purple-600 flex flex-col items-center justify-evenly p-2 rounded-lg text-white">
+              <p className="text-sm font-semibold">
+                {displayHour}{amPm}
+              </p>
+              <img src={`https://openweathermap.org/img/wn/${hourly.weather[0].icon}@2x.png`} alt="" />
+              <p className="text-md font-semibold">{unit ? Math.round(hourly.temp) : Math.round(changeToFahrenheit(hourly.temp))}°</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default HourlyWeather;
