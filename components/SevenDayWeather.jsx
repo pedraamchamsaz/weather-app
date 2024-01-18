@@ -1,6 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
 
 const SevenDayWeather = ({ weather, unit, changeToFahrenheit }) => {
+    const [hoveredIndex, setHoveredIndex] = useState(null);
   const dailyData = weather?.daily || [];
   console.log(dailyData)
   const time = weather?.timezone;
@@ -10,38 +12,49 @@ const SevenDayWeather = ({ weather, unit, changeToFahrenheit }) => {
 
   return (
     <div className="flex flex-col items-center justify-center w-screen min-h-screen text-gray-700 p-10 bg-gradient-to-br from-purple-900 via-purple-400 to-indigo-200">
-      <div className="flex flex-col space-y-6 w-full max-w-screen-sm bg-white p-10 mt-10 rounded-xl ring-8 ring-white ring-opacity-40">
+      
+      <div className="flex flex-col space-y-6 w-full max-w-screen-md bg-white pt-10 pb-10 mt-10 rounded-xl ring-8 ring-white ring-opacity-40">
         {dailyData.slice(1, 8).map((daily, index) => {
           const nextDayIndex = (today.getDay() + index) % 7; // Use modulo to wrap around the days
           const dayOfWeek = weekday[nextDayIndex];
 
           return (
-            <div key={index} className="flex justify-between items-center">
-              <span className="font-semibold text-lg w-1/4">{dayOfWeek}</span>
-              <div className="flex items-center justify-end w-1/4 pr-10">
-                <span className="font-semibold">
-                  {dailyData[index].humidity}%
+            <div
+              key={index}
+              className={`flex flex-col px-10 hover:bg-gray-200 ${hoveredIndex === index ? 'bg-gradient-to-br from-purple-500 via-purple-400 to-indigo-200' : ''}`}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className='flex flex-row justify-between items-center'>
+                <span className="font-semibold text-lg w-1/6">{dayOfWeek}</span>
+                <div className="flex items-center justify-end w-1/4 pr-10">
+                  <span className="font-semibold">{daily.humidity}%</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M12 3.571c3.658 5.437 6 9.223 6 12.503 0 3.268-2.691 5.926-6 5.926s-6-2.658-6-5.925c0-3.281 2.341-7.067 6-12.504zm0-3.571c-4.87 7.197-8 11.699-8 16.075 0 4.378 3.579 7.925 8 7.925s8-3.547 8-7.925c0-4.376-3.13-8.878-8-16.075z" />
+                  </svg>
+                </div>
+                <img
+                  src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`}
+                  alt=""
+                />
+                <span className="font-semibold text-lg w-1/4 text-right">
+                  {unit ? Math.round(daily.temp.min) : Math.round(changeToFahrenheit(daily.temp.min))}° / {' '}
+                  {unit ? Math.round(daily.temp.max) : Math.round(changeToFahrenheit(daily.temp.max))}°
                 </span>
-
-                <svg
-                  className="w-6 h-6 fill-current ml-1"
-                  viewBox="0 0 16 20"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Your humidity SVG code */}
-                </svg>
               </div>
-              <img
-                src={`https://openweathermap.org/img/wn/${dailyData[index].weather[0].icon}@2x.png`}
-                alt=""
-              />
-              <span className="font-semibold text-lg w-1/4 text-right">
-              {unit ? Math.round(dailyData[index].temp.min) : Math.round(changeToFahrenheit(dailyData[index].temp.min))}° / {' '}
-              {unit ? Math.round(dailyData[index].temp.max) : Math.round(changeToFahrenheit(dailyData[index].temp.max))}°
-             
-                
-              </span>
+              {/* pop-up */}
+              <div className='w-full font-semibold bg-white px-6 pt-4 pb-4 mb-4 rounded-lg text-center'>
+                <span className={hoveredIndex === index ? 'flex flex-row gap-6 justify-between text-lg' : 'hidden'}>
+                    <p>
+                    Feels Like: {Math.round(daily.feels_like.day)}°
+                    </p>
+                    <p>
+                    {daily.weather[0].description.toUpperCase()}
+                    </p>
+
+                   
+                </span>
+              </div>
             </div>
           );
         })}
