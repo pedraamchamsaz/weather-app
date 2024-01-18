@@ -12,7 +12,7 @@ const style = {
   height: 200,
 };
 
-const CurrentWeather = ({weather, changeToFahrenheit, unit, city, cityDisplay}) => {
+const CurrentWeather = ({weather, changeToFahrenheit, unit,}) => {
   
 const options = {
   weekday: "long",
@@ -54,8 +54,7 @@ const options = {
   return (
     <div className="flex flex-col items-center mt-5">
         <p>{new Date(weather?.current?.dt * 1000).toLocaleString('en-GB', options)}</p>
-          <p className="text-xl font-bold">{cityDisplay}</p>
-
+          <p className="text-xl font-bold">{weather?.cityName}</p>
           <Lottie
         animationData={generateAnimation()}
         style={style}

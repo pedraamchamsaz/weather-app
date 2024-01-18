@@ -9,7 +9,7 @@ export async function GET(req) {
     );
     return NextResponse.json({
       status: 200,
-      body: weather.data,
+      body: { ...weather.data, cityName: coord.name },
     });
   } catch (error) {
     console.log(error);
