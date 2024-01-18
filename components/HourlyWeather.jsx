@@ -6,15 +6,15 @@ const HourlyWeather = ({ weather, unit, changeToFahrenheit }) => {
   const today = new Date(new Date().toLocaleString("en-US", {timeZone: time}));
 
   return (
-    <div id="container" className="bottom-2 w-screen h-1/2 py-4">
-      <div className="flex justify-start overflow-x-scroll gap-2 pt-3">
+    <div id="container" className="w-full h-1/2 my-4">
+      <div className="flex justify-start overflow-x-hidden hover:overflow-x-scroll gap-4 pt-3">
         {hourlyData.slice(0, 24).map((hourly, index) => {
           const nextHour = (today.getHours() + index) % 24;
           const amPm = nextHour < 12 ? "am" : "pm";
           const displayHour = nextHour % 12 || 12;
 
           return (
-            <div key={index} className="weather-card h-full min-w-32 w-32 bg-purple-600 flex flex-col items-center justify-evenly p-2 rounded-lg text-white">
+            <div key={index} className="weather-card h-full min-w-32 w-32 bg-gradient-to-br from-blue-200 to-blue-400 flex flex-col items-center justify-evenly py-2 rounded-lg text-white">
               <p className="text-sm font-semibold">
                 {displayHour}{amPm}
               </p>

@@ -10,9 +10,9 @@ const SevenDayWeather = ({ weather, unit, changeToFahrenheit }) => {
   const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   return (
-    <div className="flex flex-col items-center justify-center w-screen min-h-screen text-gray-700 p-10 bg-gradient-to-br from-purple-900 via-purple-400 to-indigo-200">
+    <div className="flex flex-col items-center justify-center w-screen min-h-screen text-gray-700 p-10 ">
       
-      <div className="flex flex-col space-y-6 w-full max-w-screen-md bg-white pt-10 pb-10 mt-10 rounded-xl ring-8 ring-white ring-opacity-40">
+      <div className="flex flex-col space-y-6 w-full max-w-screen-md bg-white pt-10 pb-10 mt-10 rounded-xl ring-8 ring-white ring-opacity-40 bg-purple-100">
         {dailyData.slice(1, 8).map((daily, index) => {
           const nextDayIndex = (today.getDay() + index) % 7; // Use modulo to wrap around the days
           const dayOfWeek = weekday[nextDayIndex];
@@ -20,7 +20,7 @@ const SevenDayWeather = ({ weather, unit, changeToFahrenheit }) => {
           return (
             <div
               key={index}
-              className={`flex flex-col px-10 hover:bg-gray-200 ${hoveredIndex === index ? 'bg-gradient-to-br from-purple-500 via-purple-400 to-indigo-200' : ''}`}
+              className={`flex flex-col px-10 hover:bg-gray-200 ${hoveredIndex === index ? 'bg-gradient-to-br from-blue-100 to-blue-200' : ''}`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -42,8 +42,8 @@ const SevenDayWeather = ({ weather, unit, changeToFahrenheit }) => {
                 </span>
               </div>
               {/* pop-up */}
-              <div className='w-full font-semibold bg-white px-6 pt-4 pb-4 mb-4 rounded-lg text-center'>
-                <span className={hoveredIndex === index ? 'flex flex-row gap-6 justify-between text-lg' : 'hidden'}>
+              <div className='w-full font-semibold  text-center'>
+                <span className={hoveredIndex === index ? 'flex flex-row gap-6 justify-between text-lg px-6 pt-4 pb-4 mb-4 rounded-lg bg-blue-300 transition' : 'hidden'}>
                     <p>
                     Feels Like: {Math.round(daily.feels_like.day)}°
                     </p>

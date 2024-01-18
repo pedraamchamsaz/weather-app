@@ -38,13 +38,13 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="py-10 px-20">
+    <main className="py-10 px-10 w-screen bg-gradient-to-br from-blue-200 via-purple-100 to-blue-200 ">
       <div className="flex items-center w-full gap-10">
         <div className="flex gap-5 items-center w-full">
           <input
             type="text"
             name="city"
-            className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="block bg-gray-100 rounded-md py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             placeholder="Enter location"
             onChange={onChangeCity}
             onKeyDown={(e) => {
@@ -65,7 +65,7 @@ export default function Home() {
           </svg>
         </div>
         <button
-          className="flex w-full justify-center gap-2"
+          className="flex  justify-center p-2 gap-2 border border-black border-2 text-lg rounded-xl hover:bg-blue-300 transition"
           onClick={toggleUnit}
         >
           <p>
