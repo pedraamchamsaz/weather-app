@@ -2,7 +2,6 @@ import React from 'react';
 
 const SevenDayWeather = ({ weather, unit, changeToFahrenheit }) => {
   const dailyData = weather?.daily || [];
-  console.log(dailyData)
   const time = weather?.timezone;
   const today = new Date(new Date().toLocaleString('en-US', { timeZone: time }));
 

@@ -10,6 +10,7 @@ export default function Home() {
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState("London");
   const [unit, setUnit] = useState(true);
+  const [cityDisplay, setCityDisplay] = useState("");
 
   const changeToFahrenheit = (celsiusTemp) => {
     return (celsiusTemp * 9) / 5 + 32;
@@ -24,6 +25,7 @@ export default function Home() {
       const response = await axios.get(`/api/weather?city=${city}`);
       console.log(response.data, "DATA");
       setWeather(response.data.body);
+      setCityDisplay(city.replace(/\b\w/g, (s) => s.toUpperCase()));
     } catch (error) {
       console.log(error, "THIS IS AN ERROR");
     }
@@ -78,6 +80,8 @@ export default function Home() {
         </button>
       </div>
       <CurrentWeather
+        cityDisplay={cityDisplay}
+        city={city}
         weather={weather}
         changeToFahrenheit={changeToFahrenheit}
         unit={unit}
@@ -87,9 +91,11 @@ export default function Home() {
         unit={unit}
         changeToFahrenheit={changeToFahrenheit}
       />
-      <SevenDayWeather weather={weather}
-      unit={unit}
-      changeToFahrenheit={changeToFahrenheit} />
+      <SevenDayWeather
+        weather={weather}
+        unit={unit}
+        changeToFahrenheit={changeToFahrenheit}
+      />
     </main>
   );
 }
