@@ -7,8 +7,6 @@ export async function GET(req) {
     const weather = await axios.get(
       `https://api.openweathermap.org/data/3.0/onecall?lat=${coord.lat}&lon=${coord.lon}&units=metric&exclude=minutely$&appid=${process.env.API_KEY}`
     );
-
-    console.log(weather);
     return NextResponse.json({
       status: 200,
       body: weather.data,
