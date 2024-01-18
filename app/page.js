@@ -75,7 +75,9 @@ export default function Home() {
         unit={unit}
         changeToFahrenheit={changeToFahrenheit}
       />
-      <SevenDayWeather weather={weather} />
+      <SevenDayWeather weather={weather}
+      unit={unit}
+      changeToFahrenheit={changeToFahrenheit} />
     </main>
   );
 }
