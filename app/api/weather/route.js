@@ -28,3 +28,5 @@ async function getLonLatByCity(city) {
     return NextResponse.error();
   }
 }
+
+export const dynamic = 'force-dynamic'
