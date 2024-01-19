@@ -20,7 +20,7 @@ const SevenDayWeather = ({ weather, unit, changeToFahrenheit }) => {
           return (
             <div
               key={index}
-              className={`flex flex-col px-10 hover:bg-gray-200 ${hoveredIndex === index ? 'bg-gradient-to-br from-blue-100 to-blue-200' : ''}`}
+              className={`flex flex-col px-10  ${hoveredIndex === index ? 'bg-gradient-to-br from-blue-100 to-blue-200' : ''}`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
