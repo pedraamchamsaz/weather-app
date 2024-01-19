@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* @media (min-width: 768px) {
+    #current-weather {
+    display: grid;
+    text-align: center;
+    column-gap: 21rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr;
+    grid-template-areas: 
+    "city p"
+    "icon temperature"
+    "text high-low";
+}
+
+#current-weather p:nth-of-type(1) {
+    grid-area: city;
+
+}
+
+#current-weather p:nth-of-type(2) {
+    grid-area: p;
+}
+
+#current-weather p:nth-of-type(3) {
+    grid-area: icon;
+}
+
+#current-weather p:nth-of-type(4) {
+    grid-area: temperature;
+}
+
+#current-weather p:nth-of-type(5) {
+    grid-area: text;
+}
+
+#current-weather p:nth-of-type(6) {
+    grid-area: high-low;
+}
+} */
