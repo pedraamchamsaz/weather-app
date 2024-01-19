@@ -6,7 +6,9 @@ import SevenDayWeather from "@/components/SevenDayWeather";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 export default function Home() {
+  
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState("London");
   const [unit, setUnit] = useState(true);
@@ -37,10 +39,11 @@ export default function Home() {
     handleSearch();
   }, []);
 
+
   return (
     <main className="py-10 px-10 w-screen bg-gradient-to-br from-blue-200 via-purple-100 to-blue-200 ">
       <div className="flex items-center w-full gap-10">
-        <div className="flex gap-5 items-center w-full">
+        <div className="flex gap-1 sm:gap-5 items-center w-full">
           <input
             type="text"
             name="city"
@@ -65,7 +68,7 @@ export default function Home() {
           </svg>
         </div>
         <button
-          className="flex  justify-center p-2 gap-2 border border-black border-2 text-lg rounded-xl hover:bg-blue-300 transition"
+          className="flex justify-center p-2 gap-2 border-black border-2 text-md sm:text-lg rounded-xl hover:bg-blue-300 transition"
           onClick={toggleUnit}
         >
           <p>
@@ -87,11 +90,13 @@ export default function Home() {
         unit={unit}
         changeToFahrenheit={changeToFahrenheit}
       />
-      <SevenDayWeather
-        weather={weather}
-        unit={unit}
-        changeToFahrenheit={changeToFahrenheit}
-      />
+      <div className='flex justify-start sm:justify-center' >
+        <SevenDayWeather
+          weather={weather}
+          unit={unit}
+          changeToFahrenheit={changeToFahrenheit}
+        />
+      </div>
     </main>
   );
 }
