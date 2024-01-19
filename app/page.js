@@ -6,7 +6,9 @@ import SevenDayWeather from "@/components/SevenDayWeather";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 export default function Home() {
+  
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState("London");
   const [unit, setUnit] = useState(true);
@@ -36,6 +38,7 @@ export default function Home() {
   useEffect(() => {
     handleSearch();
   }, []);
+
 
   return (
     <main className="py-10 px-10 w-screen bg-gradient-to-br from-blue-200 via-purple-100 to-blue-200 ">

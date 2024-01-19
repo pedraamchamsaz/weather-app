@@ -63,7 +63,7 @@ const options = {
           <p className="font-semibold text-lg">{weather?.current?.weather[0].main}</p>
           <p className="flex gap-2">H: <span>{unit ? Math.floor(weather?.daily?.[0].temp.max) : Math.floor(changeToFahrenheit(weather?.daily?.[0].temp.max))}<span>&deg;</span></span> L: <span>{unit ? Math.floor(weather?.daily?.[0].temp.min) : Math.floor(changeToFahrenheit(weather?.daily?.[0].temp.min))}<span>&deg;</span></span></p>
 
-        <article className="rounded-lg border border-gray-200   mx-auto md:w-3/2 lg:w-4/5 xl:w-5/4 flex gap-8 text-center w-full mt-7 py-3  justify-center">
+        <article className="rounded-lg mx-auto md:w-3/2 lg:w-4/5 xl:w-5/4 flex gap-8 text-center w-full mt-7 py-3  justify-center">
 
           <div className="flex flex-col items-center shadow-md p-4 rounded-lg w-1/6 min-w-28">
             <svg fill="#000000" className="w-6 h-6" viewBox="0 0 32 32" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg">

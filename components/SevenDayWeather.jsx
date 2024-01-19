@@ -12,7 +12,7 @@ const SevenDayWeather = ({ weather, unit, changeToFahrenheit }) => {
   return (
     <div className="flex flex-col items-center justify-center w-screen min-h-screen text-gray-700 p-10 ">
       
-      <div className="flex flex-col space-y-6 w-full max-w-screen-md pt-10 pb-10 mt-10 rounded-xl ring-8 ring-white ring-opacity-40 bg-purple-100">
+      <div className="flex flex-col space-y-6 w-full max-w-screen-md pt-10 pb-10 mt-10 rounded-xl ring-8 ring-white ring-opacity-40 bg-purple-200">
         {dailyData.slice(1, 8).map((daily, index) => {
           const nextDayIndex = (today.getDay() + index) % 7; // Use modulo to wrap around the days
           const dayOfWeek = weekday[nextDayIndex];
