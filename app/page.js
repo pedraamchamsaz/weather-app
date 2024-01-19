@@ -13,10 +13,6 @@ export default function Home() {
   const [city, setCity] = useState("London");
   const [unit, setUnit] = useState(true);
 
-  if (typeof window === "undefined") {
-    return null;
-  }
-
   const changeToFahrenheit = (celsiusTemp) => {
     return (celsiusTemp * 9) / 5 + 32;
   };
