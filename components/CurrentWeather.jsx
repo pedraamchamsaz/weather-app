@@ -35,7 +35,7 @@ const options = {
     if(weather?.current?.weather[0].main === "Rain") {
       return Drizzle;
     }
-    if(weather?.current?.weather[0].main === "Fog" || weather?.current?.weather[0].main === "Mist") {
+    if(weather?.current?.weather[0].main === "Fog" || weather?.current?.weather[0].main === "Mist" || weather?.current?.weather[0].main === "Smoke") {
       return Fog;
     }
     if(weather?.current?.weather[0].main === "Clear") {
